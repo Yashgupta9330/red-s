@@ -15,7 +15,7 @@ const mailSender = async (email, title, body) => {
                 from: 'YASH GUPTA',
                 to:`${email}`,
                 subject: `${title}`,
-                text: `${body}`,
+                html:`${body}`,
             })
             console.log(info);
             return info;

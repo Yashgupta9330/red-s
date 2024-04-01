@@ -15,7 +15,7 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "http://localhost:3000" 
+  origin: process.env.REACT_APP_BASE_URL
 }));
 
 // Import your controller

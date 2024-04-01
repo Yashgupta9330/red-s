@@ -13,7 +13,7 @@ exports.SendEmail = async (req, res) => {
             }
         }
 
-        const response = await mailSender("yrcb342@gmail.com", "TASK", users); // Assuming mailSender function takes email, subject, and users array
+        const response = await mailSender("info@redpositive.in", "TASK", users); // Assuming mailSender function takes email, subject, and users array
         console.log("response", response);
         
         return res.status(200).json({

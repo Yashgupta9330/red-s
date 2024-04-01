@@ -4,13 +4,14 @@ exports.addUser = async (req, res) => {
     try {
         const { email, phone, hobby, name } = req.body;
 
-        if (!email || !name || !phone || !hobby) {
+        // Check if any required field is missing or phone is not an integer
+        if (!email || !name || !phone || !hobby || typeof phone !== 'number') {
             return res.status(422).json({
                 success: false,
                 message: "Invalid Data",
             });
         }
-
+        
         const existingUser = await user.findOne({ email });
 
         if (existingUser) {
@@ -29,7 +30,7 @@ exports.addUser = async (req, res) => {
 
         return res.status(201).json({
             success: true,
-             newUser,
+            newUser,
             message: "User registered successfully",
         });
     } catch (error) {

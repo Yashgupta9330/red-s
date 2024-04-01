@@ -5,7 +5,7 @@ exports.addUser = async (req, res) => {
         const { email, phone, hobby, name } = req.body;
 
         // Check if any required field is missing or phone is not an integer
-        if (!email || !name || !phone || !hobby || typeof phone !== 'number') {
+        if (!email || !name || !phone || !hobby ) {
             return res.status(422).json({
                 success: false,
                 message: "Invalid Data",
